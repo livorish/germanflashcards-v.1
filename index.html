@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn German</title>
+    <style>
+        body {
+            padding: 40px;
+            background: #5f9fff;
+            font-family: courier;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            flex: none;
+            margin-top: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .card-title,
+        .card-answer {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold
+        }
+
+        .card-button {
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid #0070bb;
+            background: white;
+            color: #0070bb;
+        }
+
+        .card-answer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class='card'>
+            <div><img src="https://i.imgur.com/KFVMZdq.png"></div>
+            <div class='card-title'>Apple</div>
+            <button class='card-button'>Show</button>
+            <div class='card-answer'>Apfel</div>
+        </div>
+        <div class='card'>
+            <div><img src="https://i.imgur.com/rTw7fjd.png"></div>
+            <div class='card-title'>Dog</div>
+            <button class='card-button'>Show</button>
+            <div class='card-answer'>Hund</div>
+        </div>
+        <div class='card'>
+            <div><img src="https://i.imgur.com/yymzaTU.png"></div>
+            <div class='card-title'>City</div>
+            <button class='card-button'>Show</button>
+            <div class='card-answer'>Stadt</div>
+        </div>
+        <div class='card'>
+            <div><img src="https://i.imgur.com/6tdQOcF.png"></div>
+            <div class='card-title'>Chair</div>
+            <button class='card-button'>Show</button>
+            <div class='card-answer'>Stuhl</div>
+        </div>
+    </div>
+
+    <script>
+        var cards = document.getElementsByClassName('card');
+        for (var cardIndex = 0; cardIndex < cards.length; cardIndex++) {
+            var button = cards[cardIndex].querySelector('.card-button');
+            button.addEventListener('click', function (event) {
+                var currentButton = event.target;
+                var currentCard = currentButton.parentNode;
+                var currentAnswer = currentCard.querySelector('.card-answer');
+                if (currentButton.innerHTML == 'Show') {
+                    currentAnswer.style.display = 'Block';
+                    currentButton.innerHTML = 'Hide';
+                } else if (currentButton.innerHTML == 'Hide') {
+                    currentAnswer.style.display = 'None';
+                    currentButton.innerHTML = 'Show';
+                }
+            });    
+        };
+       
+
+    </script>
+</body>
+
+</html>
